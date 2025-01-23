@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATOS SAM</title>
+    <link rel="stylesheet" href="styles/form.css">
+    <script defer src="scripts/form.js"></script>
+</head>
+
+<body>
+    <!-- Login Overlay -->
+    <div id="login-overlay" class="login-overlay">
+        <div class="login-box">
+            <h2>Iniciar Sesión</h2>
+            <input type="password" id="password" placeholder="Contraseña">
+            <button id="login-button">Entrar</button>
+            <p id="login-error" class="error"></p> <!-- Elemento para mostrar errores -->
+        </div>
+    </div>
+    <div id="main-content" style="display: none;">
+    <h1>🚢 S A M</h1>
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Left Pane: Form -->
+        <div class="left-pane">
+            <h2></h2>
+            <div class="form-container">
+                <!-- Nombre -->
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <select id="nombre">
+                        <option>Selecciona una opción</option>
+                    </select>
+                </div>
+
+                <!-- Llegada y Salida -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fecha_llegada">Fecha Llegada</label>
+                        <input type="date" id="fecha_llegada">
+                        <label for="hora_llegada">Hora Llegada</label>
+                        <input type="time" id="hora_llegada">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_salida">Fecha Salida</label>
+                        <input type="date" id="fecha_salida">
+                    </div>
+                </div>
+
+                <!-- Posición y Conexión -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="posicion">Posición</label>
+                        <select id="posicion">
+                            <option>Selecciona una opción</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="conexion">Conexión</label>
+                        <select id="conexion">
+                            <option>Selecciona una opción</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- POC y Teléfonos -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="poc">POC</label>
+                        <input type="text" id="poc" placeholder="Nombre/Apellido">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefonos">Teléfonos</label>
+                        <input type="text" id="telefonos" placeholder="xxxxxxxxx">
+                    </div>
+                </div>
+
+                <!-- Botones -->
+                <div class="buttons">
+                    <button onclick="saveData()">Guardar</button>
+                    <button class="new" onclick="resetForm()">Nuevo</button>
+                    <button class="clear" onclick="clearForm()">Limpiar</button>
+                    <button class="delete" onclick="deleteData()">Eliminar</button>
+                    <button class="cancel" onclick="cancelEdit()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Pane: Data Table -->
+        <div class="right-pane">
+            <h2></h2> <!-- Título dinámico  REVISAR SI NECESARIO -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Fecha Llegada</th>
+                        <th>Hora Llegada</th>
+                        <th>Fecha Salida</th>
+                        <th>Posición</th>
+                        <th>Conexión</th>
+                        <th>Teléfonos</th>
+                        <th>POC</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Filas dinámicas -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="scripts/login.js"></script>
+    <footer class="footer">
+        <p>❤️ muxo</p> <!-- Cambiar por lo que quieras -->
+    </footer>
+</body>
+
+</html>
