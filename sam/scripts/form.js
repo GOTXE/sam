@@ -345,6 +345,7 @@ async function checkForUpdates() {
     }
 }
 
+
 function updateTable(data) {
     const tableBody = document.querySelector('.right-pane table tbody');
     if (!tableBody) return;
