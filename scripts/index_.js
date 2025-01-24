@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const solariSound = new Audio('./assests/sound/solari_1s.mp3');
+    const solariSound = new Audio('./assests/sound/solari.mp3');
     solariSound.volume = 1; // Ajustar volumen al 100%
 
     // Verificar si el permiso ya fue otorgado
@@ -51,19 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderTable(data, solariSound);
             }
         })
-        .catch(error => console.error('Error al cargar el JSON:', error));
-    
-    // Cambiar tamaño de la letra de Titulo
-    const h1 = document.querySelector('h1');
-    const articles = ['de', 'del', 'la', 'las', 'el', 'los', 'un', 'una', 'unos', 'unas'];
-    
-    h1.innerHTML = h1.textContent.split(' ').map(word => {
-        if (articles.includes(word.toLowerCase())) {
-            return word;
-        } else {
-            return `<span class="first-letter">${word.charAt(0)}</span>${word.slice(1)}`;
-        }
-    }).join(' ');
+        .catch(error => console.error('Error al cargar datos:', error));
 });
 
 function requestAudioPermission(solariSound) {
@@ -86,7 +74,7 @@ function requestAudioPermission(solariSound) {
                         renderTable(data, solariSound);
                     }
                 })
-                .catch(error => console.error('Error al cargar el JSON:', error));
+                .catch(error => console.error('Error al cargar datos:', error));
         }).catch(error => {
             console.error('Error al reproducir sonido:', error);
         });
@@ -109,13 +97,9 @@ function renderTable(data, solariSound) {
     const today = new Date();
     const tomorrow = new Date();
     tomorrow.setDate(today.getDate() + 1);
-    const delayPerRow = 500; // Retraso en milisegundos entre cada línea
-    const totalDuration = data.length * delayPerRow + 3800; // Duración total en milisegundos
-
 
     // Reproducir sonido en bucle
     solariSound.loop = true;
-    solariSound.currentTime = 0;
     solariSound.play().catch(e => console.log('Error reproduciendo audio:', e));
 
     data.forEach((item, index) => {
@@ -133,25 +117,27 @@ function renderTable(data, solariSound) {
 
             row.className = rowClass;
             row.innerHTML = `
-                <td>${wrapCharacters(item.nombre)}</td>
-                <td>${wrapCharacters(item.fecha_llegada.split('/').slice(0, 2).join('/'))}</td>
-                <td>${wrapCharacters(item.hora_llegada)}</td>
-                <td>${wrapCharacters(item.fecha_salida ? item.fecha_salida.split('/').slice(0, 2).join('/') : 'TBD')}</td>
-                <td>${wrapCharacters(item.Posición)}</td>
-                <td>${wrapCharacters(item.Conexión)}</td>
-                <td>${wrapCharacters(item.Teléfonos.join(', '))}</td>
-                <td>${wrapCharacters(item.POC)}</td>
-            `;
+            <td>${wrapCharacters(item.nombre)}</td>
+            <td>${wrapCharacters(item.fecha_llegada.split('/').slice(0, 2).join('/'))}</td>
+            <td>${wrapCharacters(item.hora_llegada)}</td>
+            <td>${wrapCharacters(item.fecha_salida ? item.fecha_salida.split('/').slice(0, 2).join('/') : 'TBD')}</td>
+            <td>${wrapCharacters(item.Posición)}</td>
+            <td>${wrapCharacters(item.Conexión)}</td>
+            <td>${wrapCharacters(item.Teléfonos.join(', '))}</td>
+            <td>${wrapCharacters(item.POC)}</td>
+        `;
             tbody.appendChild(row);
 
-        } , index * 500); // Retraso de 500ms entre cada fila
+            // Detener el sonido al finalizar la última línea
+            if (index === data.length - 1) {
+                solariSound.loop = false;
+                solariSound.addEventListener('ended', () => {
+                    solariSound.pause();
+                    solariSound.currentTime = 0;
+                });
+            }
+        }, index * 500);
     });
-
-    // Detener el sonido después de renderizar todas las filas
-    setTimeout(() => {
-        solariSound.loop = false; // Desactivar el bucle
-        solariSound.pause(); // Pausar el sonido
-    }, totalDuration); // Tiempo total para la reproducción
 }
 
 function parseDate(dateString) {
@@ -160,19 +146,19 @@ function parseDate(dateString) {
 }
 
 function wrapCharacters(text) {
-    return text.split('').map((char, index) => {
-        let charClass;
-        if (char === ' ') {
-            charClass = 'letter-blank';
-        } else if (char === ':') {
-            charClass = 'letter-colon';
-        } else if (char === '-') {
-            charClass = 'letter-dash';
-        } else if (char === '/') {
-            charClass = 'letter-slash';
-        } else {
-            charClass = `letter letter-${char.toUpperCase()}`;
-        }
-        return `<span class="${charClass}" style="animation-delay: ${index * 0.1}s;"></span>`;
-    }).join('');
+    return text.split('').join(' ');
 }
+
+// Cambiar tamaño de la letra de Titulo
+document.addEventListener('DOMContentLoaded', () => {
+    const h1 = document.querySelector('h1');
+    const articles = ['de', 'del', 'la', 'las', 'el', 'los', 'un', 'una', 'unos', 'unas'];
+    
+    h1.innerHTML = h1.textContent.split(' ').map(word => {
+        if (articles.includes(word.toLowerCase())) {
+            return word;
+        } else {
+            return `<span class="first-letter">${word.charAt(0)}</span>${word.slice(1)}`;
+        }
+    }).join(' ');
+});
