@@ -1,0 +1,318 @@
+/* Estilo para el formulario */
+
+* { /* Estilo para todos los elementos */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body { /* Estilo para el cuerpo de la página */
+    background-color: hsl(0, 1%, 15%);
+    color: grey;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
+h1 { /* Estilo para el titulo principal */
+    color: #f8e71c;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+h2 { /* Estilo para los titulos */
+    color: #f8e71c;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+/* Estilo para el contenedor principal */
+.login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.login-box {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.login-box h2 {
+    color: #f8e71c; /* Color del título para mayor visibilidad */
+    margin-bottom: 15px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-box button {
+    padding: 10px 20px;
+    background-color: #444;
+    color: #f8e71c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-box button:hover {
+    background-color: #555; /* Cambio de color al pasar el mouse */
+}
+
+.error {
+    color: #ff4d4d; /* Rojo para mensajes de error */
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    display: flex;
+    flex-direction: row;
+    height: auto; 
+    padding: 20px;
+    gap: 20px;
+    margin-top: 1px;
+    margin-bottom: 60px;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Media query para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Apila los elementos en vertical */
+        padding: 10px;
+        margin: 0;
+        width: 100%;
+    }
+    
+    .left-pane,
+    .right-pane {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em; /* Reduce tamaño del título */
+    }
+}
+
+/* Estilo para los paneles */
+.left-pane {
+    flex: 0 0 35%;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.right-pane {
+    flex: 0 0 65%;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+/* Estilo para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td { /* Estilo para las celdas de la tabla */
+    padding: 10px;
+    border: 1px solid #4d4444;
+    text-align: center;
+}
+
+th { /* Estilo para las cabeceras de la tabla */
+    background-color: #444;
+}
+
+td { /* Estilo para las filas de la tabla */
+    background-color: #222;
+}
+tr:hover { /* Estilo para la fila al pasar el ratón por encima */
+    background-color: #444;
+    color: #f8e71c;
+}
+
+/* Estilo para el contenedor del formulario */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 30px; /* Espacio adicional en la parte inferior */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+    padding-right: 10px; /* Espacio adicional a la derecha */
+}
+
+.form-group label { /* Estilo para los labels */
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Estilo para los inputs, selects y textareas */
+.form-group input,
+.form-group select,
+.form-group textarea { 
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #222;
+    color: #f8e71c;
+    text-align: center;
+}
+
+.form-group select option { /* Estilo para las opciones del select */
+    text-align: center; /* Centra las opciones del select */
+}
+
+.form-group textarea { /* Estilo para el textarea */
+    text-align: left; /* Mantiene el texto alineado a la izquierda para mejor legibilidad */
+    background-color: #29b622;
+    min-height: 100px;
+}
+
+.form-group input::placeholder { /* Estilo para el placeholder */
+    color: #666;
+    text-align: center;
+}
+
+.form-group input:focus::placeholder { /* Estilo para el placeholder cuando el input tiene contenido */
+    opacity: 0.5;
+}
+
+.form-group input[type="date"] { /* Estilo para el input de tipo date */
+    color: #ccc;
+}
+
+.form-row { /* Estilo para la fila de elementos */
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-row .form-group { /* Ajuste de los elementos en la fila */
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* Estilo para el contenedor de botones */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Espacio adicional antes del final del contenedor */
+    padding: 0 10px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    background-color: #444;
+    color: #f8e71c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button.cancel {
+    background-color: #aa4444;
+}
+
+.buttons button.new {
+    background-color: #4a90e2;
+    color: white;
+    font-weight: bold;
+}
+
+.buttons button.delete {
+    background-color: #e74c3c;
+    color: white;
+    font-weight: bold;
+}
+
+.buttons button.clear {
+    background-color: #f39c12;
+    color: white;
+    font-weight: bold;
+}
+
+/* Estilo para el texto de ejemplo */
+.example-text {
+    font-size: 0.9em;
+    color: #bbb;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #666;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Ocultar el texto cuando el input tenga contenido */
+.form-group input:focus + .example-text,
+.form-group input:not(:placeholder-shown) + .example-text {
+    opacity: 0;
+}
+
+tr.selected { /* Estilo para la fila seleccionada */
+    background-color: rgba(217, 214, 185, 0.3); /* Fondo resaltado */
+    color: #f8e71c;     /* Texto más visible */
+    font-weight: bold;    /* Texto en negrita */
+    font-size: large;
+}
+
+/* Estilo para el encabezado de la tabla */
+thead tr:hover {
+    background-color: white;
+    color: white;
+}
+
+/* Estilo para el footer */
+.footer {
+    background-color: #222;
+    color: #f8e71c;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #444;
+}

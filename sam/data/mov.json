@@ -1,0 +1,122 @@
+[
+    {
+        "nombre": "Rayo",
+        "fecha_llegada": "13/01/2025",
+        "hora_llegada": "10:00",
+        "fecha_salida": null,
+        "Posición": "1",
+        "Conexión": "AAA",
+        "Teléfonos": [
+            "611345678"
+        ],
+        "POC": "JUAN PEREZ"
+    },
+    {
+        "nombre": "Destructor",
+        "fecha_llegada": "24/01/2025",
+        "hora_llegada": "11:00",
+        "fecha_salida": "11/01/2025",
+        "Posición": "2",
+        "Conexión": "BBB",
+        "Teléfonos": [
+            "600000001"
+        ],
+        "POC": "MARIA GARCIA"
+    },
+    {
+        "nombre": "Furia",
+        "fecha_llegada": "10/01/2025",
+        "hora_llegada": "12:00",
+        "fecha_salida": "13/01/2025",
+        "Posición": "3",
+        "Conexión": "CCC",
+        "Teléfonos": [
+            "600000002"
+        ],
+        "POC": "PEDRO LÓPEZ"
+    },
+    {
+        "nombre": "Martillo",
+        "fecha_llegada": "12/01/2025",
+        "hora_llegada": "13:00",
+        "fecha_salida": null,
+        "Posición": "4",
+        "Conexión": "DDD",
+        "Teléfonos": [
+            "600000003"
+        ],
+        "POC": "CARMEN MARTINEZ"
+    },
+    {
+        "nombre": "Bala",
+        "fecha_llegada": "14/01/2025",
+        "hora_llegada": "14:00",
+        "fecha_salida": "17/01/2025",
+        "Posición": "5",
+        "Conexión": "EEE",
+        "Teléfonos": [
+            "600000004"
+        ],
+        "POC": "LUIS GONZALEZ"
+    },
+    {
+        "nombre": "ESPIA",
+        "fecha_llegada": "16/01/2025",
+        "hora_llegada": "15:00",
+        "fecha_salida": "19/01/2025",
+        "Posición": "6",
+        "Conexión": "FFF",
+        "Teléfonos": [
+            "600000005"
+        ],
+        "POC": "ANA RODRIGUEZ"
+    },
+    {
+        "nombre": "LEON",
+        "fecha_llegada": "18/01/2025",
+        "hora_llegada": "10:00",
+        "fecha_salida": null,
+        "Posición": "7",
+        "Conexión": "GGG",
+        "Teléfonos": [
+            "600000006"
+        ],
+        "POC": "ANTONIO HERNANDEZ"
+    },
+    {
+        "nombre": "BESTIA",
+        "fecha_llegada": "20/01/2025",
+        "hora_llegada": "11:00",
+        "fecha_salida": "23/01/2025",
+        "Posición": "8",
+        "Conexión": "HHH",
+        "Teléfonos": [
+            "600000007"
+        ],
+        "POC": "LAURA FERNANDEZ"
+    },
+    {
+        "nombre": "RELAMPAGO",
+        "fecha_llegada": "21/01/2025",
+        "hora_llegada": "12:00",
+        "fecha_salida": "25/01/2025",
+        "Posición": "9",
+        "Conexión": "III",
+        "Teléfonos": [
+            "600000008"
+        ],
+        "POC": "DAVID RUIZ"
+    },
+    {
+        "nombre": "DRAGON",
+        "fecha_llegada": "21/01/2025",
+        "hora_llegada": "13:00",
+        "fecha_salida": null,
+        "Posición": "1",
+        "Conexión": "JJJ",
+        "Teléfonos": [
+            "600000009"
+        ],
+        "POC": "SOFIA JIMENEZ"
+    }
+]
