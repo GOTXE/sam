@@ -1,3 +1,7 @@
+// Al inicio del archivo
+const solariSound = new Audio('./assets/sound/solari.mp3');
+solariSound.volume = 1; // Ajustar volumen al 0.3 = 30% 1 = 100%
+
 fetch('./data/mov.json') // Cargar el archivo JSON
     .then(response => response.json())
     .then(data => {
@@ -85,6 +89,10 @@ fetch('./data/mov.json') // Cargar el archivo JSON
                 setTimeout(() => {
                     const row = document.createElement('tr');
                     const itemDate = parseDate(item.fecha_llegada);
+
+                    // Reproducir sonido
+                    solariSound.currentTime = 0; // Reiniciar audio
+                    solariSound.play().catch(e => console.log('Error reproduciendo audio:', e));
 
                     // Determinar la clase de la fila
                     let rowClass = '';
