@@ -41,7 +41,7 @@ table {
 }
 
 /*
-  th,
+  th, // Bordes tabla
   td {
     padding: 0px;
     border: 3px solid #ddd;
