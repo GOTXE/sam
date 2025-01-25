@@ -6,31 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Dinámico</title> <!-- Cambiar por lo que necesites -->
     <link rel="stylesheet" href="./styles/index.css">
-    <script defer src="scripts/index.js" defer></script>
+    <script defer src="scripts/index.js"></script>
 
 </head>
 
 <body>
-    <h1>SISTEMA DE AVISOS DE MOVIMIENTOS</h1> <!-- Cambia por lo que necesites -->
-    <table>
-        <thead>
-            <tr>
-                <th>BUQUE</th>
-                <th>LLEGADA</th>
-                <th>HORA</th>
-                <th>SALIDA</th>
-                <th>MUELLE</th>
-                <th>PIM</th>
-                <th>TELEFONOS</th>
-                <th>POC</th>
-            </tr>
-        </thead>
-        <tbody id="table-body" class="departure-board">
-            <!-- Aquí se insertarán las filas de la tabla -->
+    <div class="top-section">
+        <h1>SISTEMA DE AVISOS DE MOVIMIENTOS</h1> <!-- Cambia por lo que necesites -->
+        <div class="container">
+            <div class="casio-f91w">
+                <div class="top bracelet">
+                    <div class="first band"></div>
+                    <div class="second band"></div>
+                </div>
+                <div class="core-watch-container">
 
-        </tbody>
-    </table>
+                    <div class="buttons-container">
+                        <div class="left top button-notch"></div>
+                        <div class="button"></div>
+                        <div class="core-watch">
+                            <div class="crystal-screen">
+                                <div class="color-border">
 
+                                    <div class="lcd-screen">
+                                        <div class="top">
+                                        </div>
+                                        <div class="center">
+                                            <div class="inner-top">
+                                            </div>
+                                            <div class="inner-center">
+                                                <div class="lcd-top">
+                                                    <span class="timemode">24H</span>
+                                                    <span class="weekday mini">--</span>
+                                                    <span class="day mini">--</span>
+                                                </div>
+
+                                                <div class="lcd-bottom">
+                                                    <span class="time">
+                                                        <span class="hours">--</span>
+                                                        <span class="sep">:</span>
+                                                        <span class="minutes">--</span>
+                                                    </span>
+                                                    <span class="seconds mini">--</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttons-container"></div>
+                    </div>
+                </div>
+                <div class="bottom bracelet">
+                    <div class="first band"></div>
+                    <div class="second band"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-section">
+        <table>
+            <thead>
+                <tr>
+                    <th>BUQUE</th>
+                    <th>LLEGADA</th>
+                    <th>HORA</th>
+                    <th>SALIDA</th>
+                    <th>MUELLE</th>
+                    <th>PIM</th>
+                    <th>TELEFONOS</th>
+                    <th>POC</th>
+                </tr>
+            </thead>
+            <tbody id="table-body" class="departure-board">
+                <!-- Aquí se insertarán las filas de la tabla -->
+
+            </tbody>
+        </table>
+    </div>
 
 </body>
 
