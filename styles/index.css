@@ -22,8 +22,7 @@ h1 {
   font-weight: bold;
   color: yellow;
   text-align: left;
-  margin-left: 50px;
-  /* Ajustar para dejar espacio al contenedor */
+  margin-left: 50px; 
 }
 
 h1 .first-letter {
@@ -41,7 +40,7 @@ table {
   background-color: #ffffff;
   border-radius: 1px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 .row-today {
@@ -1328,14 +1327,14 @@ td:nth-child(7) {
 @font-face {
   font-family: "DSEG7 Classic";
   src: url('../assests/fonts/dseg7-bold.woff') format('woff2'),
-       url('../assests/fonts/dseg7-bold.woff2') format('woff');
+    url('../assests/fonts/dseg7-bold.woff2') format('woff');
   font-display: swap;
 }
 
 @font-face {
   font-family: "DSEG7 Classic";
   src: url('../assests/fonts/dseg14-bold.woff') format('woff2'),
-       url('../assests/fonts/dseg14-bold.woff2') format('woff');
+    url('../assests/fonts/dseg14-bold.woff2') format('woff');
   font-display: swap;
 }
 
@@ -1345,6 +1344,8 @@ td:nth-child(7) {
   --white-color: #d3d2d4;
   --yellow-color: #cca25d;
   --lcd-background-color: #FFB347;
+  --lcd-background-hover-color: #FF5733;
+  /* Color de fondo al pasar el cursor */
   --lcd-color: #181921;
   --red-color: #7d3925;
   --led-color: #84fd03;
@@ -1355,22 +1356,26 @@ td:nth-child(7) {
   --button-notch-shape: polygon(100% 0, 100% 100%, 0 90%, 0 10%);
 }
 
-
 .casio-f91w,
 .container {
-  pointer-events: none;
+  /* pointer-events: none; */
   user-select: none;
 }
 
 .container {
   position: absolute;
-  top: 12px;
-  right: 20px;
+  top: 40px;
+  right: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
   transition: background 0.2s ease;
+}
+
+/* Cambiar color al pasar el ratón por encima del container */
+.container:hover .lcd-screen {
+  background: #7A8B8A;
 }
 
 /* Utility classes */
@@ -1379,103 +1384,76 @@ td:nth-child(7) {
   font-size: 23px;
 }
 
+
 .casio-f91w {
   --width: 300px;
   --height: 250px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  /* LCD*/
+  /* LCD */
   & .lcd-screen {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: var(--lcd-font);
+    font-size: 38px;
+    width: calc(var(--width) * 0.65);
+    height: 75px;
+    background: var(--lcd-background-color);
+    color: var(--lcd-color);
+    border-radius: 10px;
+    box-shadow: 0 0 0 4px #000, 0 0 0 5px var(--white-color);
+    margin: 0;
+    padding-top: 10px;
+    transition: background 0.25s ease;
+    position: relative;
 
-    & .top {
-      margin-top: 12px;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      width: calc(var(--width) * 0.7);
-      padding-bottom: 4px;
+    /* Efecto hover */
+    &:hover {
+      background: #6E7F80;
     }
 
-    & .center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: calc(var(--width) * 0.65);
-
-      & .inner-top {
-        display: flex;
-        justify-content: space-between;
-        padding-top: 4px;
-        width: 90%;
-      }
-
-      & .inner-center {
-        font-family: var(--lcd-font);
-        font-size: 38px;
-        width: calc(var(--width) * 0.6);
-        height: 75px;
-        background: var(--lcd-background-color);
-        color: var(--lcd-color);
-        border-radius: 10px;
-        box-shadow:
-          0 0 0 4px #000,
-          0 0 0 5px var(--white-color);
-        margin: 10px 0;
-        padding-top: 10px;
-        display: flex;
-        flex-direction: column;
-        transition: background-image 0.25s;
-        position: relative;
-
-        
-
-        & .lcd-top {
-          display: flex;
-          justify-content: space-around;
-
-          & .timemode {
-            font-family: sans-serif;
-            font-size: 10px;
-            align-self: flex-end;
-            transform: translate(20px);
-          }
-
-          & .weekday {
-            font-family: "DSEG14 Classic", monospace;
-          }
-        }
-
-        & .lcd-bottom {
-          display: flex;
-          justify-content: center;
-
-          & .time {
-            display: flex;
-          }
-
-          & .seconds {
-            align-self: flex-end;
-          }
-        }
-      }
-
-      & .inner-bottom {
-        display: flex;
-        justify-content: space-evenly;
-        width: calc(var(--width) * 0.8);
-      }
-    }
-
-    & .bottom {
+    & .lcd-top {
       display: flex;
       justify-content: space-around;
-      width: calc(var(--width) * 0.7);
+
+      & .timemode {
+        font-family: sans-serif;
+        font-size: 10px;
+        align-self: flex-end;
+        transform: translate(20px);
+      }
+
+      & .weekday {
+        font-family: "DSEG14 Classic", monospace;
+      }
     }
+
+    & .lcd-bottom {
+      display: flex;
+      justify-content: center;
+
+      & .time {
+        display: flex;
+      }
+
+      & .seconds {
+        align-self: flex-end;
+      }
+    }
+
+    & .inner-bottom {
+      display: flex;
+      justify-content: space-evenly;
+      width: calc(var(--width) * 0.8);
+    }
+  }
+
+  & .bottom {
+    display: flex;
+    justify-content: space-around;
+    width: calc(var(--width) * 0.7);
   }
 }
