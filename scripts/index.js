@@ -1,3 +1,4 @@
+// Función para cargar el contenido después de que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
     const solariSound = new Audio('./assests/sound/solari_1s.mp3');
     solariSound.volume = 1; // Ajustar volumen al 100%
@@ -8,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         requestAudioPermission(solariSound);
     }
-
+    // Cargar datos luego de otorgar el permiso
     fetch('./data/mov.json') // Cargar el archivo JSON
         .then(response => response.json())
         .then(data => {
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const tomorrow = new Date(today);
             tomorrow.setDate(today.getDate() + 1);
 
+            // Función para parsear la fecha
             const parseDate = (dateString) => {
                 const [day, month, year] = dateString.split('/');
                 return new Date(year, month - 1, day);
@@ -66,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).join(' ');
 });
 
+// Función para solicitar permiso de audio
 function requestAudioPermission(solariSound) {
     const permissionButton = document.createElement('button');
     permissionButton.textContent = 'Permitir sonido';
@@ -93,12 +96,14 @@ function requestAudioPermission(solariSound) {
     });
 }
 
+// Función para habilitar el audio
 function enableAudio(solariSound) {
     solariSound.play().catch(error => {
         console.error('Error al reproducir sonido:', error);
     });
 }
 
+// Función para renderizar la tabla
 function renderTable(data, solariSound) {
     const tbody = document.querySelector('table tbody');
     if (!tbody) {
@@ -118,7 +123,7 @@ function renderTable(data, solariSound) {
     solariSound.currentTime = 0;
     solariSound.play().catch(e => console.log('Error reproduciendo audio:', e));
 
-    data.forEach((item, index) => {
+    data.forEach((item, index) => { 
         setTimeout(() => {
             const row = document.createElement('tr');
             const itemDate = parseDate(item.fecha_llegada);
@@ -130,7 +135,7 @@ function renderTable(data, solariSound) {
             } else if (itemDate.toDateString() === tomorrow.toDateString()) {
                 rowClass = 'row-tomorrow';
             }
-
+            // Crear la fila de la tabla con los datos
             row.className = rowClass;
             row.innerHTML = `
                 <td>${wrapCharacters(item.nombre)}</td>
@@ -154,11 +159,13 @@ function renderTable(data, solariSound) {
     }, totalDuration); // Tiempo total para la reproducción
 }
 
+// Función para convertir una cadena de fecha en un objeto Date
 function parseDate(dateString) {
     const [day, month, year] = dateString.split('/');
     return new Date(year, month - 1, day);
 }
 
+// Función para envolver las letras con animación
 function wrapCharacters(text) {
     return text.split('').map((char, index) => {
         let charClass;
