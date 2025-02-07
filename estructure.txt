@@ -1,0 +1,17 @@
+movs
+|_____ index.html
+|_____ formsam.html
+|_____ scripts
+| |_____ index.js
+| |_____ login.js
+| |_____ form.js
+|_____ styles
+| |_____ index.css
+| |_____ form.css
+| |_____ watch.css
+|_____ assests
+| |_____ img
+| |_____ fonts
+| |_____ sound
+|_______ data
+| |_____ mov.json
